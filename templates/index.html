@@ -1,0 +1,39 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Главная
+{% endblock %}
+
+{% block page-lead %}
+<h3> Это главная страница задачника по группам и алгебрам Ли </h3>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col s8 push-s2">
+        <div class="card teal lighten-5">
+          <div class="card-content">
+            <h6>
+            С полным списком задач можно ознакомиться по <a href="/problems">ссылке</a>.
+            </h6>
+          </div>
+        </div>
+        <br/>
+        <div class="card teal lighten-5">
+            <div class="card-content">
+              <h6>
+                Вы можете добавить новые задачи, воспользовавшись <a href="/form">формой</a>.
+              </h6>
+            </div>
+          </div>
+        <br/>
+        <div class="card teal lighten-5">
+            <div class="card-content">
+              <h6>
+                Литература по курсу доступна в <a href="/references">соответствующем разделе</a>.
+              </h6>
+            </div>
+          </div>
+    </div>
+</div>
+{% endblock %}

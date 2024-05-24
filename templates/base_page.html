@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true},
+      jax: ["input/TeX","input/MathML","input/AsciiMath","output/CommonHTML"],
+      extensions: ["tex2jax.js","mml2jax.js","asciimath2jax.js","MathMenu.js","MathZoom.js","AssistiveMML.js", "[Contrib]/a11y/accessibility-menu.js"],
+      TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"],
+      equationNumbers: {
+      autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block page-title %}{% endblock %}</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="static/materialize.css"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<main>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper teal">
+          <a href="/" class="brand-logo">
+            Группы и алгебры Ли
+          </a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/problems">
+                    Задачи
+                </a></li>
+                <li><a href="/references">
+                    Литература
+                </a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="row">
+      <div class="col s8 push-s2">
+    {% block page-lead %} {% endblock %}
+      </div>
+    </div>
+    <br/>
+    {% block content %} {% endblock %}
+</main>
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="static/materialize.js"></script>
+</body>
+</html>

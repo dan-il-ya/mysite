@@ -1,0 +1,90 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Литература
+{% endblock %}
+
+{% block page-lead %}
+<h3> Список литературы </h3>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col s8 push-s2">
+        <table>
+            <thead>
+              <tr>
+                  <th>Автор(ы)</th>
+                  <th>Название</th>
+                  <th>Ссылка</th>
+              </tr>
+            </thead>  
+    
+            {% for author, title, url in references %}
+            <tbody>
+              <tr>
+                <td> {{author}} </td>
+                <td> {{title}} </td>
+                {% if url %}
+                <td> <a href="{{url}}"> есть </a> </td>
+                {% else %}
+                <td> нет </td>
+                {% endif %}
+              </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+        <br/>
+        <center>
+          <button class="btn waves-effect waves-light" type="submit" onclick='toggleVisibility()' id="showButton">
+            Добавить
+          </button>
+          <button class="btn waves-effect waves-light" style='display:none' type="submit" onclick='toggleVisibility()' id="hideButton">
+            Скрыть
+          </button>
+          <br/>
+          <div id='hiddenDiv' style='display:none'>
+            <form method="post">
+              <div class="row">
+                <div class="input-field col s12">
+                    <input id="author" name="author" type="text" class="validate">
+                    <label for="author"> Автор(ы) </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                    <input id="title" name="title" type="text" class="validate">
+                    <label for="title"> Название </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                    <input id="link" name="link" type="text" class="validate">
+                    <label for="link"> Ссылка </label>
+                </div>
+              </div>
+              <button class="btn waves-effect waves-light" type="submit" name="AddReference" formaction="/references">
+                Добавить
+              </button>
+            </form>
+          </div>
+      </center>
+    </div>
+</div>
+<script>
+function toggleVisibility() {
+  let element = document.getElementById('hiddenDiv');
+  let showButton = document.getElementById('showButton');
+  let hideButton = document.getElementById('hideButton');
+  if (element.style.display === 'none') {
+    element.style.display = 'block';
+    showButton.style.display = 'none';
+    hideButton.style.display = 'block';
+  } else {
+    element.style.display = 'none';
+    showButton.style.display = 'block';
+    hideButton.style.display = 'none';
+  }
+}
+</script>
+{% endblock %}
